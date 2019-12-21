@@ -27,6 +27,7 @@ def Tigger():
         _instance = _Tigger()
     return _instance
 
+
 if __name__ == '__main__':
     a = Tigger()
     b = Tigger()
