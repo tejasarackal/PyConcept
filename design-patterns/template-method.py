@@ -59,6 +59,10 @@ class MemoryAverageCalculator(AverageCalculator):
         next_, self.id = self.list[self.id], self.id + 1
         return next_
 
+    def average(self):
+        self.id = 0
+        return super().average()
+
     # def average(self):
     #    if len(self.list) == 0:
     #        raise RuntimeError("No items found for calculating average")
@@ -75,4 +79,5 @@ if __name__ == '__main__':
 
     obj = [1,2,3,4,5,6,7]
     m = MemoryAverageCalculator(obj)
+    print(f"Average of numbers in a list memory is {m.average()}")
     print(f"Average of numbers in a list memory is {m.average()}")
