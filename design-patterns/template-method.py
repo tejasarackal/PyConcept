@@ -48,14 +48,16 @@ class FileAverageCalculator(AverageCalculator):
 class MemoryAverageCalculator(AverageCalculator):
 
     def __init__(self, list_: list()):
-        self.list = iter(list_)
-        print(f"Iterator id {id(self.list)}, List id {id(list_)}")
+        self.list = list_
+        self.id = 0
+        self.length = len(list_)
 
     def has_next(self) -> bool:
-        return self.list.__length_hint__() > 0
+        return self.length > self.id
 
     def next_item(self) -> float:
-        return next(self.list)
+        next_, self.id = self.list[self.id], self.id + 1
+        return next_
 
     # def average(self):
     #    if len(self.list) == 0:
